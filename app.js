@@ -13,4 +13,6 @@ app.set('view engine', 'handlebars');
 app.use(methodOverride('_method'));
 
 const reviews = require('./controller/reviews.js');
+const comments = require('./controller/comments.js');
 reviews(app);
+comments(app);
