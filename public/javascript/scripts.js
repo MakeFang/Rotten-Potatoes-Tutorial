@@ -43,6 +43,7 @@ document.getElementById("newComment").addEventListener("submit", (e) => {
 
 document.getElementById('deleteComment').addEventListener('click', (e) => {
   console.log("click!");
+  //this only gets the first delete button. How to fix?
   let commentId = document.getElementById('deleteComment').getAttribute('data-comment-id');
   console.log(commentId);
   axios.delete(`/reviews/comments/${commentId}`)
