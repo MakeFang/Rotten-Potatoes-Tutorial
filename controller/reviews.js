@@ -5,6 +5,7 @@ const Comment = require('../model/comment.js');
 
 function reviews(app) {
 
+/*
   app.get('/', (req, res) => {
     Review.find()
       .then(reviews => {
@@ -14,6 +15,7 @@ function reviews(app) {
         console.log(err);
       });
   });
+  */
 
   app.post('/reviews', (req, res) => {
     Review.create(req.body).then((review) => {

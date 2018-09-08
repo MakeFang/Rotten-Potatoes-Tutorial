@@ -14,5 +14,7 @@ app.use(methodOverride('_method'));
 
 const reviews = require('./controller/reviews.js');
 const comments = require('./controller/comments.js');
+const movies = require('./controller/movies.js');
 reviews(app);
 comments(app);
+movies(app);
