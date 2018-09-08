@@ -1,5 +1,9 @@
 <!-- movies-show.handlebars -->
 
+<div class="pull-right">
+  <a href="/movies/{{movie.id}}/reviews/new" class="btn btn-primary">New Review</a>
+</div>
+
 <div class="row">
     <div class="col-sm-4">
         <img class="img-responsive" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"/>
@@ -9,3 +13,12 @@
         <p class="lead">{{movie.overview}}</p>
     </div>
 </div>
+
+<div class="embed-responsive embed-responsive-21by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{movie.trailer_youtube_id}}?rel=0"></iframe>
+</div>
+
+<h3>Reviews</h3>
+{{#each reviews}}
+  {{> review}}
+{{/each}}

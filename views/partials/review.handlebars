@@ -1,0 +1,9 @@
+<div>
+  <h1><a href="/movies/{{this.id}}/reviews/{{this._id}}">{{this.title}}</a></h1>
+  <h2>{{this.movieTitle}}</h2>
+  <p>{{this.description}}</p>
+  <p><a href="/movies/{{this.id}}/reviews/{{this._id}}/edit">Edit</a></p>
+  <p><form method="POST" action="/movies/{{this.id}}/reviews/{{this._id}}?_method=DELETE">
+      <button class="btn btn-primary" type="submit">Delete</button>
+  </form></p>
+</div>

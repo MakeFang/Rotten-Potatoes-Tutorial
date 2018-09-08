@@ -17,10 +17,10 @@ function reviews(app) {
   });
   */
 
-  app.post('/reviews', (req, res) => {
+  app.post('/movies/:movieId/reviews', (req, res) => {
     Review.create(req.body).then((review) => {
-      console.log(review)
-      res.redirect(`/reviews/${review._id}`)
+      console.log(review);
+      res.redirect(`/movies/${review.movieId}`);
     }).catch((err) => {
       console.log(err.message)
     })
@@ -28,11 +28,12 @@ function reviews(app) {
 
   //how to resolve new/:id conflict?
 
-  app.get('/reviews/new', (req, res) => {
-    res.render('reviews-new', {});
+  app.get('/movies/:movieId/reviews/new', (req, res) => {
+    console.log(req.params.movieId);
+    res.render('reviews-new', { movieId: req.params.movieId });
   })
 
-  app.get('/reviews/:id', (req, res) => {
+  app.get('/movies/:movieId/reviews/:id', (req, res) => {
     // find review
     Review.findById(req.params.id).then(review => {
       // fetch its comments
@@ -46,7 +47,7 @@ function reviews(app) {
     });
   });
 
-  app.get('/reviews/:id/edit', (req, res) => {
+  app.get('/movies/:movieId/reviews/:id/edit', (req, res) => {
     Review.findById(req.params.id).then((review) =>{
       res.render('reviews-edit', {review: review})
     }).catch((err)=>{
@@ -54,20 +55,20 @@ function reviews(app) {
     })
   })
 
-  app.put('/reviews/:id', (req, res) => {
+  app.put('/movies/:movieId/reviews/:id', (req, res) => {
     Review.findByIdAndUpdate(req.params.id, req.body)
       .then(review => {
-        res.redirect(`/reviews/${review._id}`)
+        res.redirect(`/movies/${review.movieId}`)
       })
       .catch(err => {
         console.log(err.message)
       })
   })
 
-  app.delete('/reviews/:id', function (req, res) {
+  app.delete('/movies/:movieId/reviews/:id', function (req, res) {
     console.log("DELETE review")
     Review.findByIdAndRemove(req.params.id).then((review) => {
-      res.redirect('/');
+      res.redirect(`/movies/${review.movieId}`);
     }).catch((err) => {
       console.log(err.message);
     })
