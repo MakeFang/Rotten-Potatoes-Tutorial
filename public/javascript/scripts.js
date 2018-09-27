@@ -34,7 +34,7 @@ if (el){
                 <h4 class="card-title">${response.data.comment.title}</h4>
                 <p class="card-text">${response.data.comment.content}</p>
                 <p>
-                <button class="btn btn-link" id="deleteComment" data-comment-id=${response.data.comment._id}>Delete</button>
+                <button class="btn btn-link" id="deleteComment-${response.data.comment._id}" data-comment-id=${response.data.comment._id}>Delete</button>
                 </p>
                 </div>
                 </div>
