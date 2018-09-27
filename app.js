@@ -3,7 +3,9 @@ var exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-require('dotenv').config();
+if (!process.env.PORT) {
+  require('dotenv').config()
+}
 
 const app = express();
 
